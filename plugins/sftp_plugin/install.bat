@@ -1,0 +1,1 @@
+pip install ../sftp_plugin/

@@ -1,0 +1,17 @@
+[project]
+name = "backup_plan-keepass"
+version = "0.1.0"
+description = "A keepass credentials plugin for backup_plan"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name="Kurt Eilander" }
+]
+dependencies = []
+
+[project.entry-points."backup_plan.credential_manager"]
+sftp = "keepass_plugin.keepassCredentials:Plugin"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
