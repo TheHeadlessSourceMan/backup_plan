@@ -1,3 +1,8 @@
+![Status: Stable](https://img.shields.io/badge/status-draft-yellow.svg?style=plastic)
+![Python Version: 2.7](https://img.shields.io/badge/Python%20Version-3.8-blue.svg?style=plastic)
+![Release Version: 1.0](https://img.shields.io/badge/Release%20Version-1.0-green.svg?style=plastic)
+[![webpage:click here](https://img.shields.io/badge/webpage-click%20here-blue.svg?style=plastic)](https://TheHeadlessSourceMan.wordpress.com)
+
 # backup_plan
 This tool allows you to set up an individual backup plan for each directory.
 
