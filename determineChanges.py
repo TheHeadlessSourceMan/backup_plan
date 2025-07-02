@@ -7,7 +7,7 @@ import hashlib
 from pathlib import Path
 
 
-def compute_hash(path:Path)->str:
+def computeHash(path:Path)->str:
     """
     Compute a hash of an entire directory
     """
@@ -18,13 +18,13 @@ def compute_hash(path:Path)->str:
             h.update(p.read_bytes())
     return h.hexdigest()
 
-def compute_size(path:Path)->int:
+def computeTotalSize(path:Path)->int:
     """
     Compute total size of a file or entire directory
     """
     return sum([p.stat().st_size for p in path.rglob('*')])
 
-def compute_modified_time(path:Path)->datetime.datetime:
+def computeLastModifiedTime(path:Path)->datetime.datetime:
     """
     Compute the last modified time of an entire directory
     """
@@ -41,12 +41,12 @@ def hasChanged(
     Check to see if a file or directory has changed
     """
     if lastSize is not None \
-        and compute_size(path)!=lastSize:
+        and computeTotalSize(path)!=lastSize:
         return True
     if sinceTimestamp is not None \
-        and compute_modified_time(path)!=sinceTimestamp:
+        and computeLastModifiedTime(path)!=sinceTimestamp:
         return True
     if lastHash is not None \
-        and compute_hash(path)!=lastHash:
+        and computeHash(path)!=lastHash:
         return True
     return False

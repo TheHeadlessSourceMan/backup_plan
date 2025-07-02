@@ -26,7 +26,7 @@ def main(args:typing.Iterable[str])->int:
     """
     _=args
     print('Registered backup manager plugins:')
-    for plugin in backupManagerPlugins.keys():
+    for plugin in backupManagerPlugins.keys(): # pylint: disable=duplicate-code
         print(plugin)
     return 0
 

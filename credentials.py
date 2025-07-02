@@ -51,7 +51,7 @@ def main(args:typing.Iterable[str])->int:
     _=args
     creds=CredentialManagers({})
     print('Registered credentials plugins:')
-    for plugin in creds.keys():
+    for plugin in creds.keys(): # pylint: disable=duplicate-code
         print(plugin)
     return 0
 
