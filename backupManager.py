@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 """
-General utilities
+Tools to handle backup manager plugins
 """
 import typing
-from .plugins import PluginManager
+from backup_plan.plugins import PluginManager
 
 
 class BackupManagerPlugin(typing.Protocol):
@@ -17,3 +18,19 @@ class BackupManagerPlugin(typing.Protocol):
 
 backupManagerPlugins=PluginManager[BackupManagerPlugin](
     'backup_plan.backup_manager')
+
+
+def main(args:typing.Iterable[str])->int:
+    """
+    Run this like from the command line
+    """
+    _=args
+    print('Registered backup manager plugins:')
+    for plugin in backupManagerPlugins.keys():
+        print(plugin)
+    return 0
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(main(sys.argv[1:]))

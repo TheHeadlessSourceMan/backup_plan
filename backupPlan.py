@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 A backup plan.
 More or less wraps a .backup_plan file in a directory.
@@ -146,7 +147,7 @@ def getBackupPlan(
 def getBackupPlans(
     directories:typing.Union[
         str,Path,typing.Iterable[typing.Union[str,Path]]]
-    )->typing.Generator[BackupPlan,str]:
+    )->typing.Generator[BackupPlan,None,None]:
     """
     Perform a recursive search and yield a BackupPlan
     object for every directory with a .backup_plan file
@@ -168,7 +169,7 @@ def runAllBackups(
     directories:typing.Union[
         str,Path,typing.Iterable[typing.Union[str,Path]]],
     force:bool=False
-    )->typing.Generator[BackupPlan,str]:
+    )->typing.Generator[BackupPlan,None,None]:
     """
     Run all backups for every directory or subdirectory with
     a backup plan.

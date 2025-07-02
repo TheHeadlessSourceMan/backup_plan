@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 """
 All credential managers
 """
 import typing
-from .plugins import PluginManager
+from backup_plan.plugins import PluginManager
 
 
 class CredentialsPlugin(typing.Protocol):
@@ -41,3 +42,20 @@ class CredentialManagers(PluginManager[CredentialsPlugin]):
         Get credentials from a specific credentials manager
         """
         return self[manager].getCredentials(username)
+
+
+def main(args:typing.Iterable[str])->int:
+    """
+    Run this like from the command line
+    """
+    _=args
+    creds=CredentialManagers({})
+    print('Registered credentials plugins:')
+    for plugin in creds.keys():
+        print(plugin)
+    return 0
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(main(sys.argv[1:]))
