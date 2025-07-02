@@ -169,7 +169,7 @@ def runAllBackups(
     directories:typing.Union[
         str,Path,typing.Iterable[typing.Union[str,Path]]],
     force:bool=False
-    )->typing.Generator[BackupPlan,None,None]:
+    )->None:
     """
     Run all backups for every directory or subdirectory with
     a backup plan.
