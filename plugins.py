@@ -20,7 +20,7 @@ class PluginManager(typing.Generic[T]):
         """
         if self._plugins is None:
             self.reload()
-        return self._plugins[name]
+        return self._plugins[name] # type: ignore
 
     def get(self,
         name:str,
@@ -31,7 +31,7 @@ class PluginManager(typing.Generic[T]):
         """
         if self._plugins is None:
             self.reload()
-        return self._plugins.get(name,default)
+        return self._plugins.get(name,default) # type: ignore
 
     def __len__(self)->int:
         """
@@ -39,7 +39,7 @@ class PluginManager(typing.Generic[T]):
         """
         if self._plugins is None:
             self.reload()
-        return len(self._plugins)
+        return len(self._plugins) # type: ignore
 
     def __iter__(self)->typing.Iterator[T]:
         """
@@ -47,7 +47,7 @@ class PluginManager(typing.Generic[T]):
         """
         if self._plugins is None:
             self.reload()
-        return iter(self._plugins.values())
+        return iter(self._plugins.values()) # type: ignore
 
     def keys(self)->typing.Iterable[str]:
         """
@@ -55,7 +55,7 @@ class PluginManager(typing.Generic[T]):
         """
         if self._plugins is None:
             self.reload()
-        return self._plugins.values()
+        return self._plugins.values() # type: ignore
 
     def values(self)->typing.Iterable[T]:
         """
@@ -63,7 +63,7 @@ class PluginManager(typing.Generic[T]):
         """
         if self._plugins is None:
             self.reload()
-        return self._plugins.values()
+        return self._plugins.values() # type: ignore
 
     def reload(self):
         """
