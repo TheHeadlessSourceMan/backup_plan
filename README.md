@@ -2,6 +2,14 @@
 ![Python Version: 2.7](https://img.shields.io/badge/Python%20Version-3.8-blue.svg?style=plastic)
 ![Release Version: 1.0](https://img.shields.io/badge/Release%20Version-1.0-green.svg?style=plastic)
 [![webpage:click here](https://img.shields.io/badge/webpage-click%20here-blue.svg?style=plastic)](https://TheHeadlessSourceMan.wordpress.com)
+<!-- [![PyPI](https://img.shields.io/pypi/v/backup_plan.svg)]() -->
+
+<!-- If you fork this repo, update the badges below to reflect your own GitHub username and project name -->
+[![build](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/ci.yml/badge.svg)]()
+[![flake8](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/ci.yml/badge.svg?event=push)]()
+[![mypy](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/ci.yml/badge.svg?event=push)]()
+[![pylint](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/ci.yml/badge.svg?event=push)]()
+[![codecov](https://codecov.io/gh/TheHeadlessSourceMan/backup_plan/branch/main/graph/badge.svg)](https://codecov.io/gh/TheHeadlessSourceMan/backup_plan)
 
 # backup_plan
 This tool allows you to set up an individual backup plan for each directory.
