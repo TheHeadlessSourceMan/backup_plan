@@ -18,11 +18,11 @@ def compute_hash(path:Path)->str:
             h.update(p.read_bytes())
     return h.hexdigest()
 
-def compute_size(path:Path)->str:
+def compute_size(path:Path)->int:
     """
     Compute total size of a file or entire directory
     """
-    return sum(path.rglob('*'))
+    return sum([p.stat().st_size for p in path.rglob('*')])
 
 def compute_modified_time(path:Path)->datetime.datetime:
     """

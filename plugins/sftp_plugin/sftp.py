@@ -4,7 +4,7 @@ Plugin to backup using sftp
 import typing
 import os
 import subprocess
-import paramiko
+import paramiko # type: ignore
 
 
 class Plugin:

@@ -97,7 +97,7 @@ class BackupPlan:
         """
         if self._json is None:
             self.load()
-        return self._json
+        return self._json # type: ignore
 
     def load(self):
         """
@@ -115,7 +115,6 @@ class BackupPlan:
         """
         data=json.dumps(self._json,indent=2)
         self._planFilename.write_text(data,'utf-8',errors='ignore')
-        self._planFilename.close()
 
     def runBackups(self,force:bool=False):
         """
@@ -138,6 +137,8 @@ def getBackupPlan(
     NOTE:if you want a BackupPlan even if the directory doesn't have
     a file yet,simply create a BackupPlan object.
     """
+    if not isinstance(directory,Path):
+        directory=Path(directory)
     plan=directory/".backup_plan"
     if plan.is_file():
         return BackupPlan(plan)
@@ -157,8 +158,10 @@ def getBackupPlans(
     elif isinstance(directories,Path):
         directories=[directories]
     else:
-        directories=[Path(d) for d in directories]
+        directories=list(directories)
     for directory in directories:
+        if not isinstance(directory,Path):
+            directory=Path(directory)
         bp=getBackupPlan(directory)
         if bp is not None:
             yield bp

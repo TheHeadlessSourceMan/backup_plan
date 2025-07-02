@@ -7,7 +7,7 @@
 <!-- If you fork this repo, update the badges below to reflect your own GitHub username and project name -->
 [![build](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/python-package.yml/badge.svg)]()
 [![flake8](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/python-package.yml/badge.svg?event=push)]()
-<!--[![mypy](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/python-package.yml/badge.svg?event=push)]()-->
+[![mypy](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/python-package.yml/badge.svg?event=push)]()
 [![pylint](https://github.com/TheHeadlessSourceMan/backup_plan/actions/workflows/python-package.yml/badge.svg?event=push)]()
 [![codecov](https://codecov.io/gh/TheHeadlessSourceMan/backup_plan/branch/main/graph/badge.svg)](https://codecov.io/gh/TheHeadlessSourceMan/backup_plan)
 

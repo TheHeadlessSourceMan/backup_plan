@@ -5,7 +5,7 @@ import typing
 import subprocess
 from pathlib import Path
 try:
-    from pykeepass import PyKeePass
+    from pykeepass import PyKeePass # type: ignore
     hasPyKeePass=True
 except ImportError:
     hasPyKeePass=False
@@ -16,13 +16,13 @@ class Plugin:
     Credential manager plugin
     """
     def __init__(self,
-        db_path:Path,
+        dbPath:Path,
         password:typing.Optional[str]=None,
-        keyfile:typing.Optional[Path]=None):
+        keyFile:typing.Optional[Path]=None):
         """ """
-        self.db_path=db_path
-        self.password=password
-        self.keyfile=keyfile
+        self.dbPath:Path=dbPath
+        self.password:typing.Optional[str]=password
+        self.keyFile:typing.Optional[Path]=keyFile
         self.loadDatabase()
 
     def loadDatabase(self)->None:
@@ -31,10 +31,11 @@ class Plugin:
         """
         if not hasPyKeePass:
             return
-        if self.keyfile is not None:
-            self.keyfile=str(self.keyfile)
-        self.kp=PyKeePass(str(self.db_path),
-            password=self.password,keyfile=self.keyfile)
+        keyFile:typing.Union[None,str,Path]=self.keyFile
+        if keyFile is not None:
+            keyFile=str(keyFile)
+        self.kp=PyKeePass(str(self.dbPath),
+            password=self.password,keyfile=keyFile)
 
     def getCredentials(self,
         username:str
@@ -49,7 +50,7 @@ class Plugin:
                 ["keepassxc-cli","show","--field","Password",username],
                 capture_output=True,text=True,check=True
             )
-            return res.stdout.strip()
+            return username,res.stdout.strip()
         entry=None
         for entry in self.kp.find_entries(title=username,first=True):
             break
