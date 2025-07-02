@@ -66,7 +66,7 @@ class BackupPlan:
         if directoryOrPlan.is_dir():
             directoryOrPlan=directoryOrPlan/".backup_plan"
         self._planFilename=directoryOrPlan
-        self._json=typing.Optional[typing.List[typing.Dict]]=None
+        self._json:typing.Optional[typing.List[typing.Dict]]=None
 
     @property
     def backups(self)->typing.Generator[Backup,None,None]:

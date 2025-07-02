@@ -28,12 +28,8 @@ def compute_modified_time(path:Path)->datetime.datetime:
     """
     Compute the last modified time of an entire directory
     """
-    last_timestamp=0
-    for p in path.rglob('*'):
-        timestamp=p.stat().st_mtime
-        if timestamp>last_timestamp:
-            last_timestamp=timestamp
-    return datetime.datetime.fromtimestamp(last_timestamp)
+    newestTimestamp=max([p.stat().st_mtime for p in path.rglob('*')])
+    return datetime.datetime.fromtimestamp(newestTimestamp)
 
 def hasChanged(
     path:Path,

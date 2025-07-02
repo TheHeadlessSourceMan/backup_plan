@@ -73,7 +73,7 @@ class PluginManager(typing.Generic[T]):
         think something has changed)
         """
         self._plugins={}
-        for entry in entry_points(group=self.pluginGroup):
+        for entry in entry_points(group=self.pluginGroup): # pylint:disable=unexpected-keyword-arg
             try:
                 plugin_cls=entry.load()
                 self._plugins[entry.name]=plugin_cls
